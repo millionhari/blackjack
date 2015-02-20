@@ -7,10 +7,19 @@ class window.HandView extends Backbone.View
     @collection.on 'add remove change', => @render()
     @render()
 
+  # update loss
+
   render: ->
     @$el.children().detach()
     @$el.html @template @collection
     @$el.append @collection.map (card) ->
       new CardView(model: card).$el
-    @$('.score').text @collection.scores()[0]
+    console.log(@collection.scores());
+
+    if @collection.scores()[1] > 22
+      @$('.score').text @collection.scores()[0]
+    else
+      @$('.score').text @collection.scores()[1]
+    if @collection.scores()[0] > 22 and @collection.scores()[1] > 22
+      @$('.score').text 'YOU LOSE'
 
