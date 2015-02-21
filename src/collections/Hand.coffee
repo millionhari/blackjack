@@ -8,7 +8,9 @@ class window.Hand extends Backbone.Collection
 
 # stand goes here
   stand: ->
-    console.log('poop')
+    @models[0].flip()
+    while @minScore() < 17
+      @hit()
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1

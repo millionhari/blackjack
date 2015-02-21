@@ -18,11 +18,3 @@ class window.HandView extends Backbone.View
       new CardView(model: card).$el
     # console.log(@collection.scores());
     @$('.score').text @collection.scores()
-
-    # if @collection.scores()[1] > 22
-    #   @$('.score').text @collection.scores()[0]
-    # else
-    #   @$('.score').text @collection.scores()[1]
-    # if @collection.scores()[0] > 22 and @collection.scores()[1] > 22
-    #   @$('.score').text 'YOU LOSE'
-
