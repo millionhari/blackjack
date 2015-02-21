@@ -7,6 +7,8 @@ class window.Hand extends Backbone.Collection
     @add(@deck.pop())
 
 # stand goes here
+  stand: ->
+    console.log('poop')
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
