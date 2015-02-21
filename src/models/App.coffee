@@ -5,4 +5,18 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    # console.log(@.attributes.playerHand.scores())
+    # console.log(@.attributes.dealerHand.scores())
 
+    # method: who's winning
+    #   returns either player or dealer
+    # app view: display who wins
+  winner: ->
+    if @.attributes.playerHand.scores() > @.attributes.dealerHand.scores() and @.attributes.playerHand.scores() isnt 'YOU LOSE'
+      'player'
+    else if @.attributes.dealerHand.scores() > @.attributes.playerHand.scores() and @.attributes.dealerHand.scores() isnt 'YOU LOSE'
+      'dealer'
+    else if @.attributes.playerHand.scores() is 'YOU LOSE'
+      'dealer'
+    else if @.attributes.dealerHand.scores() is 'YOU LOSE'
+      'player'

@@ -5,12 +5,19 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
+    # if @minScore() > 21 and @minScore() + 10 * @hasAce() > 21
+    #   if @isDealer
+    #     alert('Dealer loses')
+    #   else
+    #     alert('You Lose')
 
 # stand goes here
   stand: ->
     @models[0].flip()
     while @minScore() < 17
       @hit()
+    # do score comparrison here
+    console.log(@scores()) # gives dealer score
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -28,10 +35,12 @@ class window.Hand extends Backbone.Collection
     #[@minScore(), @minScore() + 10 * @hasAce()]
     # what if score is greater than 21?
     if @minScore() + 10 * @hasAce() > 21 and @minScore() < 21
+      # console.log(@minScore())
       @minScore()
     else if @minScore() > 21 and @minScore() + 10 * @hasAce() > 21
       'YOU LOSE'
-    else
-      @minScore() + 10 * @hasAce()
 
+    else
+      # console.log(@minScore() + 10 * @hasAce())
+      @minScore() + 10 * @hasAce()
   #busted: -> busted = false

@@ -11,11 +11,15 @@ class window.AppView extends Backbone.View
       @model.get('dealerHand').stand()
       @$('.stand-button').attr('disabled', 'true')
       @$('.hit-button').attr('disabled', 'true')
+      alert(@model.winner()+ ' wins!')
 
 
 
   initialize: ->
     @render()
+    # console.log(@$el[0].lastChild)
+    # console.log(@$('.player-hand-container'))
+    # $('score').text('as.dkfhj')
     # console.log(@$('.player-hand-container').attributes)
 
   render: ->
