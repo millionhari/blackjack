@@ -23,9 +23,13 @@ class window.Hand extends Backbone.Collection
     # Usually, that array contains one element. That is the only score.
     # when there is an ace, it offers you two scores - the
     # original score, and score + 10.
-    [@minScore(), @minScore() + 10 * @hasAce()]
+    #[@minScore(), @minScore() + 10 * @hasAce()]
     # what if score is greater than 21?
+    if @minScore() + 10 * @hasAce() > 21 and @minScore() < 21
+      @minScore()
+    else if @minScore() > 21 and @minScore() + 10 * @hasAce() > 21
+      'YOU LOSE'
+    else
+      @minScore() + 10 * @hasAce()
 
   #busted: -> busted = false
-
-
