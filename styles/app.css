@@ -14,10 +14,11 @@
 }
 
 .covered {
-  background-color: black;
-  color: black;
-  opacity: .4;
-  border-color: white;
+  background-image: url('../img/card-back.png');
+}
+
+.covered img {
+  opacity: 0;
 }
 
 .hand {
@@ -33,14 +34,16 @@ body {
   /*background-color: #333333;*/
   color: white;
   border-color: white;
-  background-image: url('../img/cardbg.jpg');
+  background-image: url('../img/cardbg2.jpg');
 }
 
 body h1{
   text-align: center;
-  font-family: 'Expletus Sans', cursive;
+  /*font-family: 'Expletus Sans', cursive;*/
+  font-family: 'IM Fell DW Pica SC', serif;
   font-size: 4em;
   padding-top: 10px;
+  margin-bottom: 10px;
 }
 
 .button-container {
@@ -56,6 +59,19 @@ button {
   font-weight: bold;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 button.stand-button {
   width: 80px;
+}
+
+.status {
+  font-family: 'IM Fell DW Pica SC', serif;
+  width: 100%;
+  height: 55px;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
 }

@@ -5,6 +5,8 @@ class window.App extends Backbone.Model
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    #@$el.append('<div class=status></div>')
+    # $('.status').text('ALSKHJDFAKLDFH')
     # console.log(@.attributes.playerHand.scores())
     # console.log(@.attributes.dealerHand.scores())
 
@@ -20,3 +22,5 @@ class window.App extends Backbone.Model
       'dealer'
     else if @.attributes.dealerHand.scores() is 'YOU LOSE'
       'player'
+    else
+      'Nobody'

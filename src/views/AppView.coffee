@@ -11,7 +11,9 @@ class window.AppView extends Backbone.View
       @model.get('dealerHand').stand()
       @$('.stand-button').attr('disabled', 'true')
       @$('.hit-button').attr('disabled', 'true')
-      alert(@model.winner()+ ' wins!')
+      #@$el.append('<div class=status></div>')
+      $('.status').text(@model.winner() + ' wins')
+      # alert(@model.winner()+ ' wins!')
 
 
 

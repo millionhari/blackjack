@@ -16,8 +16,6 @@ class window.Hand extends Backbone.Collection
     @models[0].flip()
     while @minScore() < 17
       @hit()
-    # do score comparrison here
-    console.log(@scores()) # gives dealer score
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
